@@ -9,12 +9,21 @@ body{
     --base-color: rgb(141, 131, 112);
 }
 
+ul {
+    list-style-type: none;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+}
+
 .main-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
-
+/* header */
 .header-container {
     display: flex;
     justify-content: center;
@@ -25,11 +34,12 @@ body{
     color: white;
 }
 
+/* body */
 .body-container {
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     border: var(--border-test);
 }
 
@@ -46,4 +56,59 @@ body{
 
 #add-book:hover {
     cursor: pointer;
+}
+
+/* books section */
+.book-container {
+    padding-left: 2rem;
+    margin-top: 3rem;
+    border: var(--border-test);
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 12rem);
+    gap: 2rem;
+}
+
+.book-container > div {
+    width: 12rem;
+    height: 14rem;
+}
+
+/* form */
+.new-book-form {
+    background-color: rgb(211, 188, 157);
+    display: none;
+}
+
+.active-form {
+    position: absolute;
+    left: 44%;
+    top: 33%;
+    display: block;
+}
+
+.active-form > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#create-book {
+    align-self: center;
+    cursor: pointer;
+    margin-top: 3rem;
+    width: 7rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 1rem;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color: white;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
 }

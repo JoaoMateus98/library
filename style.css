@@ -29,7 +29,6 @@ ul, li {
     justify-content: center;
     align-items: center;
     height: 10rem;
-    border: var(--border-test);
     background-color: var(--base-color);
     color: white;
 }
@@ -40,7 +39,6 @@ ul, li {
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: var(--border-test);
 }
 
 #add-book {
@@ -62,7 +60,6 @@ ul, li {
 .book-container {
     padding-left: 2rem;
     margin-top: 3rem;
-    border: var(--border-test);
     width: 100%;
     height: fit-content;
     display: grid;
@@ -78,7 +75,8 @@ ul, li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: var(--border-test);
+    background-color: var(--base-color);
+    border-radius: 10px;
 }
 
 /* form */
@@ -89,7 +87,7 @@ ul, li {
 
 .active-form {
     position: absolute;
-    left: 44%;
+    left: 45.5%;
     top: 33%;
     display: block;
 }
@@ -115,5 +113,6 @@ ul, li {
 
 li {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
+

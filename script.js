@@ -3,6 +3,7 @@ const createBook = document.querySelector('#create-book');
 const form = document.querySelector('.new-book-form');
 const bookContainer = document.querySelector('.book-container');
 
+let deleteButtons = [];
 let formData;
 let title;
 let author;
@@ -51,7 +52,11 @@ Book.prototype.createDiv = function() {
   authorElement.innerHTML = this.author;
   numOfPagesElement.innerHTML = this.numOfPages;
   deleteButton.innerHTML = 'Delete';
-  deleteButton.classList.add('delete-book');
+
+  deleteButton.addEventListener('click', (e) => {
+    let index = e.path[1].id;
+    deleteBook(index);
+  })
 
   newBookDiv.append(titleElement, authorElement, numOfPagesElement, deleteButton);
   
@@ -65,9 +70,6 @@ function updateDisplay() {
     book.setAttribute('id', index);
     bookContainer.appendChild(book);
   });
-
-  deleteButtons = document.querySelectorAll('.delete-book');
-  getDeleteButtonId(deleteButtons);
 }
 
 function removeAllChildrenNodes(parent) {
@@ -76,10 +78,8 @@ function removeAllChildrenNodes(parent) {
   }
 }
 
-function getDeleteButtonId(deleteButtons) {
-  deleteButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      console.log(e.path[1].id);
-    })
-  })
+function deleteBook(index) {
+  index = parseInt(index);
+  library.splice(index, 1);
+  updateDisplay();
 }

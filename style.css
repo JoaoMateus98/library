@@ -75,20 +75,36 @@ ul, li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--base-color);
+    background-color: rgb(211, 188, 157);
+    border: 2px solid rgb(156, 133, 101);
     border-radius: 10px;
 }
 
 /* form */
+.form-container {
+    display: none;
+}
+
+.active-form-container {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .new-book-form {
     background-color: rgb(211, 188, 157);
+    padding: 1rem;
+    border: 2px solid rgb(156, 133, 101);
+    border-radius: 10px;
     display: none;
 }
 
 .active-form {
-    position: absolute;
-    left: 45.5%;
-    top: 33%;
     display: block;
 }
 

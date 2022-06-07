@@ -1,6 +1,7 @@
 const addBook = document.querySelector('#add-book');
 const createBook = document.querySelector('#create-book');
 const form = document.querySelector('.new-book-form');
+const formBackground = document.querySelector('.form-container');
 const bookContainer = document.querySelector('.book-container');
 
 let formData;
@@ -12,10 +13,12 @@ let library = [];
 
 addBook.addEventListener('click', function () {
   form.classList.add('active-form');
+  formBackground.classList.add('active-form-container');
 });
 
 createBook.addEventListener('click', function () {
   form.classList.remove('active-form');
+  formBackground.classList.remove('active-form-container');
   formData = new FormData(form);
   title = formData.get('title');
   author = formData.get('author');

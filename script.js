@@ -30,8 +30,8 @@ function addBookToLibrary(title, author, numOfPages) {
   const newBook = new Book(title, author, numOfPages);
   const newBookDiv = newBook.createDiv();
 
-  console.log(newBookDiv);
-
+  library.push(newBookDiv);
+  updateDisplay();
 }
 
 function Book(title, author, numOfPages) {
@@ -45,12 +45,41 @@ Book.prototype.createDiv = function() {
   const titleElement = document.createElement('p');
   const authorElement = document.createElement('p');
   const numOfPagesElement = document.createElement('p');
+  const deleteButton = document.createElement('button');
 
   titleElement.innerHTML = this.title;
   authorElement.innerHTML = this.author;
   numOfPagesElement.innerHTML = this.numOfPages;
+  deleteButton.innerHTML = 'Delete';
+  deleteButton.classList.add('delete-book');
 
-  newBookDiv.append(titleElement, authorElement, numOfPagesElement);
+  newBookDiv.append(titleElement, authorElement, numOfPagesElement, deleteButton);
   
   return newBookDiv;
+}
+
+function updateDisplay() {
+  removeAllChildrenNodes(bookContainer);
+  library.forEach((book) => {
+    let index = library.indexOf(book).toString();
+    book.setAttribute('id', index);
+    bookContainer.appendChild(book);
+  });
+
+  deleteButtons = document.querySelectorAll('.delete-book');
+  getDeleteButtonId(deleteButtons);
+}
+
+function removeAllChildrenNodes(parent) {
+  while (parent.firstChild){
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function getDeleteButtonId(deleteButtons) {
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      console.log(e.path[1].id);
+    })
+  })
 }

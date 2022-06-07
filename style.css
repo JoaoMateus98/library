@@ -74,6 +74,11 @@ ul, li {
 .book-container > div {
     width: 12rem;
     height: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-test);
 }
 
 /* form */
